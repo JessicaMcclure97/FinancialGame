@@ -8,11 +8,13 @@ source environment/bin/activate
 
 python manage.py runserver 
 ```
+npm install -S react95 styled-components
 
 ** FRONTEND **
 
 ```
 cd /FinancialGame/frontend/game/
+npm 
 npm start
 ```
 
