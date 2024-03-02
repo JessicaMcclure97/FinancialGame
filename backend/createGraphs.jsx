@@ -9,7 +9,12 @@
         },
         {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
       ]}
-      layout={ {width: 320, height: 240, title: 'A Fancy Plot'} } />
+      layout={ {
+            width: 320, 
+            height: 240, 
+            title: 'A Fancy Plot',
+            legend: {x: 0, y: 1.0} // Manually position the legend at the top-left corner
+      } } />
 
 const IncomeVsExpenses = (props) =>{
   var data = [
