@@ -1,0 +1,17 @@
+Question 001:
+Q: You have decided to move out and become start your journey of being financially independant! What do you want to sort out first?
+A1: Rent a property [Advice about sorting out income before making decisions that result in expenses]
+A2: Get a job [Go to 002]
+
+Question 002:
+Q: You have decided to job hunt! You have 3 job offers, with the given tax bracket information which one do you choose? # DO WE HAVE A HELP BUTTON EXPLAINING TAX BRACKETS
+A1: £36k ~ you are in the basic tax bracket (20%) [Go to 003]
+A2: £42k ~ you are in the modified rate tax bracket (30%) [Go to 003]
+A3: £51k ~ you are in the higher rate tax bracket (45%) [Go to 003]
+Actions: global monthly_salary updated : [3000, 3500 or 4250], tax updated: [-267, -383, -420]
+
+Question 003:
+Q: You have accepted a job offer! Now you should decide what part of your budget to organise first:
+A1: Needs (i.e. rent, bills, food, transport)
+A2: Future (i.e. savings, investments, pension)
+A3: Extras (i.e. going out, holidaus, hobbies)
