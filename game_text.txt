@@ -12,6 +12,25 @@ Actions: global monthly_salary updated : [3000, 3500 or 4250], tax updated: [-26
 
 Question 003:
 Q: You have accepted a job offer! Now you should decide what part of your budget to organise first:
-A1: Needs (i.e. rent, bills, food, transport)
-A2: Future (i.e. savings, investments, pension)
-A3: Extras (i.e. going out, holidaus, hobbies)
+A1: Needs (i.e. rent, bills, food, transport) [Go to 004[
+A2: Future (i.e. savings, investments, pension) [Go to 005]
+A3: Extras (i.e. going out, holidaus, hobbies) [Go to 006]
+
+Question 004:
+Q: You have decided to sort out your needs first! Which would you like to sort out?
+A1: Rent & bills [Go to 00]
+A2: Transport [Go to 00]
+
+Question 005:
+Q: Which house rental and bill option do you choose? Given below 
+A1: Basic (£550)
+A2: Intermediate (£625)
+A3: Fancy (£800)
+Actions: update global rent: [-550, -625, -800], go back to 004
+
+Question 006:
+Q: Which mode of transportation do you choose?
+A1: Cycle (Initial bike cost £200) [worst wellbeing wise] # LATER ADDITION £25 RANDOM MAINTENANCE
+A2: Public transport (monthly ticket cost of £40 and no maintenance) [medium wellbeing]
+A3: Buy Car (large inital cost £8k, maintenance £12 and ) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
+A4: Lease Car (monthly cost £380, maintenance £12 and insurance £34) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
