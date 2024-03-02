@@ -5,9 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 
-function OptionsPannel({options}) {
-    const [chosenOption, setChosenOptions] = useState({});
-
+function OptionsPannel({options, chosen}) {
 
     const StyledModal = styled(Modal)`
     position: fixed;
@@ -24,12 +22,6 @@ function OptionsPannel({options}) {
     margin-top: 5px; /* Add some margin for spacing */
     `;
 
-    const optionClicked = (element) =>  {
-        setChosenOptions(element)
-    }
-
-
-
     return(
         <>
         <StyledModal  
@@ -37,8 +29,8 @@ function OptionsPannel({options}) {
             title="Options" 
         >
             {options.map(element => (
-                <StyledButton key={element} onClick={(element) => optionClicked(element)}>
-                    {element.text}
+                <StyledButton onClick={() => chosen(element)}>
+                    {element.option_label}
                 </StyledButton>
             ))}
             
