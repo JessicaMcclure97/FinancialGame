@@ -1,3 +1,5 @@
+Notes: Etienne sorting subcategories of questions
+
 Question 001:
 Q: You have decided to move out and become start your journey of being financially independant! What do you want to sort out first?
 A1: Rent a property [Advice about sorting out income before making decisions that result in expenses]
@@ -12,12 +14,12 @@ Actions: global monthly_salary updated : [3000, 3500 or 4250], tax updated: [-26
 
 Question 003:
 Q: You have accepted a job offer! Now you should decide what part of your budget to organise first:
-A1: Needs (i.e. rent, bills, food, transport) [Go to 004[
+A1: Needs (i.e. rent, bills, food, transport) [Go to 004]
 A2: Future (i.e. savings, investments, pension) [Go to 005]
 A3: Extras (i.e. going out, holidaus, hobbies) [Go to 006]
 
 Question 004:
-Q: You have decided to sort out your needs first! Which would you like to sort out?
+Q: You have decided to sort out your needs first! Which would you like to sort out?[Go to 00]
 A1: Rent & bills [Go to 005]
 A2: Transport [Go to 006]
 Actions: once both options have been sorted go back to 003
@@ -36,3 +38,36 @@ A2: Public transport (monthly ticket cost of £40 and no maintenance) [medium we
 A3: Buy Car (large inital cost £8k, maintenance £12 and insurance £34) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
 A4: Lease Car (monthly cost £380, maintenance £12 and insurance £34) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
 Actions: update global monthly_transport : [0, -40, -46, -426], update balance : [-200, 0, -8000, 0], go back to 004
+
+Question 007:
+Q: You have decided to sort out your needs first! Which would you like to sort out?
+A1: Savings [Go to 008]
+A2: Investments [Go to 009]
+A3: Pension [Go to 010]
+Actions: once all options have been sorted go back to 003
+
+Question 008:
+Q: How much do you decide to transfer to your savings account per month:
+A1: £0
+A2: £50
+A3: £100
+Actions: update global savings: [0, -50, -100], go back to 007
+
+Question 009:
+Q: Which type of interest rate would you like to go with? Below are the equations and explanations of each type of interest:
+You have a balance: B which is invested for a number of years, call this number n, and you have a fixed yearly rate of interest, call this r. To work out how much money you gain you replace the letters B, n and r with the actual values!
+
+Compounded annually : B * (1 + r/100) ^ n (for example investing £100 for 1 year at a yearly rate of 10% interest, at the end you get £110 = 100 + (10% of 100) = 100*1 + 100*10/100 = 100(1+10/100) = B*(1+r/100)
+Compounded m times per year: B * (1 + r/(100m)) ^ nm (for example investing £100 for 1 year at a yearly rate of 10% interest 4 times per year (so every 3 months) after 3 months you get:
+  £102.50 = 100 + (10%/4 of 100) = 100*1 + 100*0.025 = 100(1+0.025) = B*(1+r/4)^4 and at the end you get £110.38
+
+A1: Compounded annually (interest is calculated and added to your account once each year)
+A2: Compunded m times per year (interested is calculated and added to your account m times per year)
+Actions: update investment_formula: [A, B], go back to 007
+
+Question 010:
+Q: Choose your pension plan:
+A1: Defined contribution pension
+A2: Defined benefit pension
+A3: State pension
+Actions: update global savings: [0, -50, -100], go back to 007
