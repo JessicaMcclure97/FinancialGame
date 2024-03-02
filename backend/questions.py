@@ -72,8 +72,11 @@ questions = {
         {"source": 7, "option_id": 20, "option_label": "Pension", "target": 10},
 
         {"source": 8, "option_id": 21, "option_label": "£0", "target": 7, "variables": ["savings"], "amount": [0]},
-        {"source": 8, "option_id": 22, "option_label": "£150", "target": 7, "variables": ["savings"], "amount": [50]},
-        {"source": 8, "option_id": 23, "option_label": "£300", "target": 7, "variables": ["savings"], "amount": [100]},
+        {"source": 8, "option_id": 22, "option_label": "£150", "target": 7, "variables": ["savings"], "amount": [150]},
+        {"source": 8, "option_id": 23, "option_label": "£300", "target": 7, "variables": ["savings"], "amount": [300]},
+
+        {"source": 9, "option_id": 21, "option_label": "Compounded annually at 5%/year (interest is calculated and added to your account once each year)", "target": 7, "variables": ["investment"], "amount": [1.00407]}, #(1 + 0.05)^(1/12)
+        {"source": 9, "option_id": 22, "option_label": "Compunded each quarter at 5%/year (interested is calculated and added to your account 3 times per year)", "target": 7, "variables": ["investment"], "amount": [1.00414]}, #(1 + 0.05/3)^(1/4)
 
         {"source": 10, "option_id": 24, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [0]},
         {"source": 10, "option_id": 25, "option_label": "Defined benefit pension", "target": 7, "variables": ["pension"], "amount": [150]},
@@ -121,6 +124,8 @@ def outcome(selected_option, global_vars):
     var_name = selected_option["variables"]
     amount = selected_option["amount"]
     wellbeing_change = 0
+    returns = 0
+    formula = 1
     
     global_vars_updated = global_vars
 
@@ -137,25 +142,23 @@ def outcome(selected_option, global_vars):
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
             global_vars_updated["savings"] = amount[i]
-        elif var_name[i] == "investment":
-            global_vars_updated["investment"] = amount[i]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
         elif var_name[i] == "extras":
             global_vars_updated["extras"] += amount[i]
         elif var_name[i] == "pension":
             global_vars_updated["pension"] += amount[i]
-        elif var_name[i] == "amount_saved":
-            global_vars_updated["amount_saved"] += global_vars_updated["savings"]
-        elif var_name[i] == "amount_invested":
-            global_vars_updated["amount_invested"] += global_vars_updated["investment"]
+        elif var_name[i] == "investment":
+            formula = amount[i]
         elif var_name[i] == "wellbeing":
             wellbeing_change += amount[i]
 
+    global_vars_updated["amount_saved"] += global_vars_updated["savings"]
+    returns = global_vars_updated["amount_saved"]*formula
+
     global_vars_updated["wellbeing"] = min(100, global_vars_updated["wellbeing"] + wellbeing_change)
-     #returns = xxx
-    
-    income = global_vars_updated["salary"]  #+ returns
+
+    income = global_vars_updated["salary"]  + returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["investment"] + global_vars_updated["purchase"] 
 
     
