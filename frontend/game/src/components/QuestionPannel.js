@@ -5,21 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 
-function QuestionPannel() {
-    const [question, setQuestion] = useState('Test Question right here');
-
-    /*
-    * Get current question from server
-    */
-    useEffect(() => {
-    axios.get('http://localhost:8000/hello-world/')
-        .then(response => {
-        setQuestion(response.data.message);
-        })
-        .catch(error => {
-        console.log(error);
-        });
-    })
+function QuestionPannel({question}) {
 
     const StyledModal = styled(Modal)`
         position: fixed;
