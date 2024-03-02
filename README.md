@@ -15,3 +15,22 @@ python manage.py runserver
 cd /FinancialGame/frontend/game/
 npm start
 ```
+
+{
+  "nodes": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?"
+    },
+    {
+      "id": 2,
+      "question": "What language is spoken in Paris?"
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 2
+    }
+  ]
+}
