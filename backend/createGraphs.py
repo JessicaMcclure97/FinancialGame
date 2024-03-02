@@ -12,7 +12,7 @@ def plotIncomeVsExpenses(income, expenses):
     ax.plot(months, income, label='Income', color='#4daf4a') # colourblind friendly colours used: https://gist.github.com/thriveth/8560036
     ax.scatter(months, income, color='#4daf4a')
     # plot expenses over given time
-    plt.plot(months, expenses, label="Expenses", color='#e41a1c')
+    plt.plot(months, expenses, label="Expenses", color='#e41a1c', marker='x', linewidth=2)
     plt.scatter(months, expenses, color='#e41a1c')
 
     # add labels to the x and y axis
