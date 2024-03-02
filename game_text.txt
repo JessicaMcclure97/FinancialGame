@@ -18,8 +18,9 @@ A3: Extras (i.e. going out, holidaus, hobbies) [Go to 006]
 
 Question 004:
 Q: You have decided to sort out your needs first! Which would you like to sort out?
-A1: Rent & bills [Go to 00]
-A2: Transport [Go to 00]
+A1: Rent & bills [Go to 005]
+A2: Transport [Go to 006]
+Actions: once both options have been sorted go back to 003
 
 Question 005:
 Q: Which house rental and bill option do you choose? Given below 
@@ -32,5 +33,6 @@ Question 006:
 Q: Which mode of transportation do you choose?
 A1: Cycle (Initial bike cost £200) [worst wellbeing wise] # LATER ADDITION £25 RANDOM MAINTENANCE
 A2: Public transport (monthly ticket cost of £40 and no maintenance) [medium wellbeing]
-A3: Buy Car (large inital cost £8k, maintenance £12 and ) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
+A3: Buy Car (large inital cost £8k, maintenance £12 and insurance £34) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
 A4: Lease Car (monthly cost £380, maintenance £12 and insurance £34) [best wellbeing] # LATER ADDITION £412 RANDOM MAINTENANCE
+Actions: update global monthly_transport : [0, -40, -46, -426], update balance : [-200, 0, -8000, 0], go back to 004
