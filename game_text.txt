@@ -47,14 +47,14 @@ A3: Pension [Go to 010]
 Actions: once all options have been sorted go back to 003
 
 Question 008:
-Q: How much do you decide to transfer to your savings account per month:
+Q: How much do you decide to transfer to your savings account per month?
 A1: £0
 A2: £50
 A3: £100
 Actions: update global savings: [0, -50, -100], go back to 007
 
 Question 009:
-Q: Which type of interest rate would you like to go with? Below are the equations and explanations of each type of interest:
+Q: Which type of interest rate would you like to go with for your savings? Below are the equations and explanations of each type of interest:
 You have a balance: B which is invested for a number of years, call this number n, and you have a fixed yearly rate of interest, call this r. To work out how much money you gain you replace the letters B, n and r with the actual values!
 
 Compounded annually : B * (1 + r/100) ^ n (for example investing £100 for 1 year at a yearly rate of 10% interest, at the end you get £110 = 100 + (10% of 100) = 100*1 + 100*10/100 = 100(1+10/100) = B*(1+r/100)
@@ -66,7 +66,11 @@ A2: Compunded m times per year (interested is calculated and added to your accou
 Actions: update investment_formula: [A, B], go back to 007
 
 Question 010: # STILL WORKING THIS OUT
-Q: Choose your pension plan:
+Q: Which pension plan would you like to go for?
+A Defined Benefit pension scheme, often referred to as a 'final salary' scheme, provides a specific level of income at retirement determined by salary and length of service, offering certainty about future income.
+Defined Contribution schemes rely on contributions and investment returns, with retirement income depending on investment performance, posing individual risk rather than employer guarantee.
+And for completeness: The state pension provides a regular income to eligible individuals in retirement, based on their National Insurance contributions during their working years.
+
 A1: Defined contribution pension 
 A2: Defined benefit pension
 A3: State pension
