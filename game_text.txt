@@ -85,7 +85,7 @@ A1: 0 times a year
 A2: 1 small holiday (£300)
 A3: 1 medium holiday (£800)
 A4: 1 big holiday (£1200)
-Actions: update global extras : [0, -300, -800, -1200], go back to 011
+Actions: update global extras : [0, -25, -67, -100], go back to 011
 
 Question 013:
 Q: How expensive are your hobbies per month? For example: doing yoga at home is free, swimming once a week at your local pool could cost £4 per entry (4*£4 = £16), music lessons could cost £30 a month, skiing could cost £80.
@@ -102,4 +102,4 @@ A2: £15 [okay wellbeing] # LINKED TO HOBBIES?
 A3: £30 [medium wellbeing]
 A4: £50 [good wellbeing]
 A5: £100 [great wellbeing]
-Actions: update global extras: [0, -15, -30, -50, -100]
+Actions: update global extras: [0, -15, -30, -50, -100], go back to 011
