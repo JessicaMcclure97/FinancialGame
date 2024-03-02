@@ -147,7 +147,6 @@ def get_option(op_id):
 
 def outcome(selected_option, global_vars):
 
-    ########################### COMPLAINED ABOUT #############################
     try:
         var_name = selected_option["variables"]
     except:
@@ -156,7 +155,6 @@ def outcome(selected_option, global_vars):
         amount = selected_option["amount"]
     except:
         var_name = ""
-    ########################################################
 
     wellbeing_change = 0
     global_vars_updated = global_vars
@@ -204,9 +202,7 @@ def outcome(selected_option, global_vars):
 def next_question(selected_option, global_variables):
 
     o_return = []
-    ########################### COMPLAINED ABOUT ######################
     q_return = {}
-    ##########################################################
     target = selected_option["target"]
     
     for Q in questions["nodes"]:
@@ -216,7 +212,7 @@ def next_question(selected_option, global_variables):
     
     for option in questions["edges"]:
         if option["source"] == Q["id"]:
-            o_return.append(option)    q_return = {}
+            o_return.append(option)   
 
 
     response = {"question" : q_return, "options" : o_return, "state" : global_variables}

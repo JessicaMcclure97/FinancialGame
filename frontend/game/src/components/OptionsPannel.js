@@ -20,6 +20,7 @@ function OptionsPannel({options, chosen}) {
     const StyledButton = styled(Button)`
     width: 100%; /* Set width to 100% of the modal content area */
     margin-top: 5px; /* Add some margin for spacing */
+    font-size: 2vh
     `;
 
     return(

@@ -78,7 +78,7 @@ function App() {
         console.log(data)
         setQuestion({id: data.question.id, text: data.question.question}); // Update state with the fetched question
         setOptions(data.options);
-        setState(JSON.parse(data.state));
+        setState((data.state));
       } catch (error) {
         console.error('Error fetching question:', error);
         // Handle errors appropriately, e.g., display an error message to the user
@@ -101,7 +101,7 @@ function App() {
        >
         <GlobalStyle />
         <CustomGlobalStyle />
-        <h1> Game Title </h1>
+        <h1 style={{"font-size": "2vw"}}> Level Up Your Finances </h1>
         <QuestionPannel question={currentQuestion.text}/>
         <OptionsPannel options={options} chosen={(e) => optionChosen(e)} />
         <AboutPannel state={state}/>

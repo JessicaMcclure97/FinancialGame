@@ -23,9 +23,16 @@ function GraphPannel({state}) {
         purchase: 0
     })
     */
-   const [showIncomeAndExpense, setIncomeAndExpense] = useState(true)
+
+   const [showIncomeAndExpense, setIncomeAndExpense] = useState(false)
    const [showBankBalance, setBankBalance] = useState(false) // UNSURE BUDGET PI CHART EQUIVALENT
    const [showBudget, setBudget] = useState(false)
+   const [incomeOverTime, setIncomeOverTime] = useState([])
+
+   useEffect(() => {
+    const income = state.salary+state.returns
+    setIncomeAndExpense([...incomeOverTime, income])
+   },[state]);
 
     var dataIncomeVsExpenses = [
         {
@@ -57,7 +64,7 @@ function GraphPannel({state}) {
       ];
     var dataBudget = [
         {
-          values: [50, 20, 30], // [[rent+transport+food+tax, savings+pension, extras]
+          values: [20,30,50],//[(state.rent+state.transport+state.food+state.tax),(state.savings+state.pension),(state.extras)], //state.rent+state.transport+state.food+state.tax, state.savings+state.pension, state.extras],
           labels: ["Needs", "Future", "Extras"],
           type: "pie",
           marker: {
