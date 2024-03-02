@@ -1,3 +1,4 @@
+// General plot
 <Plot
       data={[
         {
@@ -34,6 +35,11 @@ const IncomeVsExpenses = (props) =>{
          marker: { symbol: 'x', size: 10, line: {width: 2, color: '#e41a1c'} }
        }
   ];
+    return(
+       <Plot
+       data={data}
+       layout={ {width: 500, height: 500, title: 'Area Chart'} } />
+    )
 }
 
 const BankBalance = (props) =>{
@@ -46,4 +52,9 @@ const BankBalance = (props) =>{
          line: {color: '#377eb8'} 
        }
   ];
+    return(
+       <Plot
+       data={data}
+       layout={ {width: 500, height: 500, title: 'Area Chart'} } />
+    )
 }
