@@ -24,23 +24,46 @@ function GraphPannel({state}) {
     })
     */
    const [showIncomeAndExpense, setIncomeAndExpense] = useState(true)
-   const [showBankBalance, setBankBalance] = useState(false)
+   const [showBankBalance, setBankBalance] = useState(false) // UNSURE BUDGET PI CHART EQUIVALENT
+   const [showBudget, setBudget] = useState(false)
 
-    var data = [
+    var dataIncomeVsExpenses = [
         {
-             x: [1, 2, 3, 4],
-             y: [0, 2, 3, 5],
-             fill: 'tozeroy',
+             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
+             y: [612, 647, 621, 633, 625, 654, 602, 629, 645, 603, 616, 618, 658, 610, 631, 611, 650, 622, 640, 627, 614, 639, 608, 655], // income = salary + returns
              type: 'scatter',
-             name: 'Vendor'
+             name: 'Income',
+             line: {color: '#4daf4a'},
+             marker: { size: 9 } 
            },
            {
-             x: [1, 2, 3, 4],
-             y: [3, 5, 1, 7],
-             fill: 'tonexty',
+             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
+             y: [628, 632, 649, 606, 635, 626, 657, 641, 619, 643, 636, 607, 642, 624, 638, 630, 601, 648, 617, 605, 646, 620, 634, 609], // expenses = transport + rent + food + tax + savings + extras + pension + purchase
              type: 'scatter',
-             name: 'Provider'
+             name: 'Expenses',
+             line: {color: '#e41a1c'},
+             marker: { symbol: 'x', size: 9, line: {color: '#e41a1c'} }
            }
+      ];
+    var dataBankBalance = [
+        {
+             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
+             y: [612, 647, 621, 633, 625, 654, 602, 629, 645, 603, 616, 618, 658, 610, 631, 611, 650, 622, 640, 627, 614, 639, 608, 655], // income - expenses
+             type: 'scatter',
+             name: 'Balance',
+             line: {color: '#377eb8'},
+             marker: { size: 9 }
+           }
+      ];
+    var dataBudget = [
+        {
+          values: [50, 20, 30], // [[rent+transport+food+tax, savings+pension, extras]
+          labels: ["Needs", "Future", "Extras"],
+          type: "pie",
+          marker: {
+            colors: ["#999999", "#984ea3", "#ff7f00"] // Specify custom colors for each section
+          }
+        },
       ];
 
     const StyledModal1 = styled(Modal)`
@@ -56,13 +79,21 @@ function GraphPannel({state}) {
     const showIncomeGraph = () => {
         setIncomeAndExpense(true)
         setBankBalance(false)
+        setBudget(false)
 
     }
 
     const showBankGraph = () => {
         setIncomeAndExpense(false)
         setBankBalance(true)
+        setBudget(false)
 
+    }
+
+    const showBudgetChart = () => {
+        setIncomeAndExpense(false)
+        setBankBalance(false)
+        setBudget(true)
     }
 
     return(
@@ -73,6 +104,9 @@ function GraphPannel({state}) {
             }, {
                 value: 'Bank Balance Overview',
                 onClick: () => showBankGraph()
+            }, {
+                value: 'Budget Overview',
+                onClick: () => showBudgetChart()
 
             }]} menu={[{
                 name: 'File',
@@ -82,14 +116,20 @@ function GraphPannel({state}) {
             title="Graphic Reports" 
         >   
             {showIncomeAndExpense && <Plot 
-                data={data}
-                layout={ {title: 'Income and Expenses over A Number of Months'} }
+                data={dataIncomeVsExpenses}
+                layout={ {title: 'Income and Expenses over A Number of Months', legend: {x: 0, y: 1.0}} }
                 config={{responsive:true}}
             />}
 
             {showBankBalance && <Plot 
-                data={data}
+                data={dataBankBalance}
                 layout={ {title: 'Bank Balance over A Number of Months'} }
+                config={{responsive:true}}
+            />}
+
+            {showBudget && <Plot 
+                data={dataBudget}
+                layout={ {title: 'Monthly Budget'} }
                 config={{responsive:true}}
             />}
 

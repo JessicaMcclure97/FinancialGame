@@ -75,9 +75,9 @@ questions = {
         {"source": 9, "option_id": 21, "option_label": "Compounded annually at 5%/year (interest is calculated and added to your account once each year)", "target": 7, "variables": ["investment"], "amount": [1.00407]}, #(1 + 0.05)^(1/12)
         {"source": 9, "option_id": 22, "option_label": "Compunded each quarter at 5%/year (interested is calculated and added to your account 3 times per year)", "target": 7, "variables": ["investment"], "amount": [1.00414]}, #(1 + 0.05/3)^(1/4)
 
-        {"source": 10, "option_id": 24, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [0]},
+        {"source": 10, "option_id": 24, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [300]},
         {"source": 10, "option_id": 25, "option_label": "Defined benefit pension", "target": 7, "variables": ["pension"], "amount": [150]},
-        {"source": 10, "option_id": 26, "option_label": "State pension", "target": 7, "variables": ["pension"], "amount": [300]},
+        {"source": 10, "option_id": 26, "option_label": "State pension", "target": 7, "variables": ["pension"], "amount": [0]},
 
         {"source": 11, "option_id": 27, "option_label": "Holiday", "target": 12},
         {"source": 11, "option_id": 28, "option_label": "Hobbies", "target": 13},
@@ -146,7 +146,7 @@ def outcome(selected_option, global_vars):
     global_vars_updated["wellbeing"] = min(100, global_vars_updated["wellbeing"] + wellbeing_change)
 
     income = global_vars_updated["salary"]  + returns
-    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["investment"] + global_vars_updated["purchase"] 
+    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"]  + global_vars_updated["purchase"] 
 
     
     global_vars_updated["bank_account"] = income - expenses

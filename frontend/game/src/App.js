@@ -65,16 +65,20 @@ function App() {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/getQuestion',{
-          currentQuestion: currentQuestion.id,
-          chosenOption: {chosenOption},
-          state: {state}, 
+        const response = await axios.get('http://localhost:8000/api/getQuestion',{
+          params: {
+            currentQuestion: currentQuestion.id,
+            chosenOption: JSON.stringify(chosenOption),
+            state: JSON.stringify(state), 
+          }
         }); 
+        
         //Await response for next Question
-        const data = await response.json();
-        setQuestion(data.question); // Update state with the fetched question
+        const data = await response.data;
+        console.log(data)
+        setQuestion({id: data.question.id, text: data.question.question}); // Update state with the fetched question
         setOptions(data.options);
-        setState(data.state);
+        setState(JSON.parse(data.state));
       } catch (error) {
         console.error('Error fetching question:', error);
         // Handle errors appropriately, e.g., display an error message to the user
@@ -85,6 +89,8 @@ function App() {
   }, [chosenOption]);
 
   const optionChosen = (option) =>{
+    console.log("CHOSEN OPTION")
+    console.log(option)
     setChosenOption(option)
   }
 

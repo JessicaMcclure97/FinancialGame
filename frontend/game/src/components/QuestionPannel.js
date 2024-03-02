@@ -27,7 +27,7 @@ function QuestionPannel({question}) {
         >
 
             <Frame bg="white" boxShadow="in" h="100%" w="100%" padding="0px 5px">
-                {question}
+                <h4 style={{fontSize: '20px'}}>{question}</h4>
             </Frame>
             
         </StyledModal>
