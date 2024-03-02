@@ -9,6 +9,7 @@ source environment/bin/activate
 python manage.py runserver 
 ```
 npm install -S react95 styled-components
+npm install react-plotly.js
 
 ** FRONTEND **
 

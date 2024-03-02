@@ -19,6 +19,7 @@ import QuestionPannel from './components/QuestionPannel';
 import OptionsPannel from './components/OptionsPannel';
 import AboutPannel from './components/AboutPannel';
 import { background, backgroundColor } from '@xstyled/styled-components';
+import GraphPannel from './components/GraphPannel';
 
 const CustomGlobalStyle = createGlobalStyle`
   body {
@@ -53,7 +54,9 @@ function App() {
     extras: 0,
     pension: 0,
     investment: 0,
-    purchase: 0
+    purchase: 0,
+    amount_saved: 0,
+    amount_invested: 0
   })
 
   /*
@@ -93,9 +96,10 @@ function App() {
         <GlobalStyle />
         <CustomGlobalStyle />
         <h1> Game Title </h1>
-        <QuestionPannel question={currentQuestion}/>
+        <QuestionPannel question={currentQuestion.text}/>
         <OptionsPannel options={options} chosen={(e) => optionChosen(e)} />
         <AboutPannel state={state}/>
+        <GraphPannel state={state}/>
         <TaskBar />
         </ThemeProvider>
 
