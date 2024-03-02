@@ -62,8 +62,8 @@ const BankBalance = (props) =>{
 const PieChart = (props) =>{
   var data = [
     {
-      values: [112, 454, 65, 544],
-      labels: ["Blue", "Red", "Yellow", "Orange"],
+      values: [rent+food+tax+trasnports, savings+returns+pension, extras], // needs, future and extras
+      labels: ["#999999", "#984ea3", "#ff7f00"],
       type: "pie",
     },
   ];
@@ -71,6 +71,6 @@ const PieChart = (props) =>{
     return(
       <Plot
       data={data}
-      layout={ {width: 500, height: 500, title: 'Favourite Colours In A Class'} } />
+      layout={ {width: 500, height: 500, title: 'Budget Overview'} } />
     )
 }
