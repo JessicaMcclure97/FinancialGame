@@ -27,25 +27,27 @@ function GraphPannel({state}) {
    const [showIncomeAndExpense, setIncomeAndExpense] = useState(false)
    const [showBankBalance, setBankBalance] = useState(false) // UNSURE BUDGET PI CHART EQUIVALENT
    const [showBudget, setBudget] = useState(false)
-   const [incomeOverTime, setIncomeOverTime] = useState([])
+   const [incomeOverTime, setIncomeOverTime] = useState([0])
 
    useEffect(() => {
     const income = state.salary+state.returns
     setIncomeAndExpense([...incomeOverTime, income])
+    console.log("INCOME OVER TIME")
+    console.log(incomeOverTime)
    },[state]);
 
     var dataIncomeVsExpenses = [
         {
-             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
-             y: [612, 647, 621, 633, 625, 654, 602, 629, 645, 603, 616, 618, 658, 610, 631, 611, 650, 622, 640, 627, 614, 639, 608, 655], // income = salary + returns
+             x: [Array.from({ length: incomeOverTime.length }, (_, i) => i + 1)], // months
+             y: [incomeOverTime], // income = salary + returns
              type: 'scatter',
              name: 'Income',
              line: {color: '#4daf4a'},
              marker: { size: 9 } 
            },
            {
-             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
-             y: [628, 632, 649, 606, 635, 626, 657, 641, 619, 643, 636, 607, 642, 624, 638, 630, 601, 648, 617, 605, 646, 620, 634, 609], // expenses = transport + rent + food + tax + savings + extras + pension + purchase
+             x: [Array.from({length: incomeOverTime.length }, (_, i) => i + 1)], // months
+             y: [incomeOverTime], // expenses = transport + rent + food + tax + savings + extras + pension + purchase
              type: 'scatter',
              name: 'Expenses',
              line: {color: '#e41a1c'},

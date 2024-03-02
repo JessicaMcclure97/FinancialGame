@@ -57,7 +57,7 @@ function AboutPannel({state}) {
                     Financial Overview 
                 </h2>
                 <h3>
-                    Total Spending Money: £{state.bank_account+state.savings}    
+                    Total Spending Money: £{state.bank_account+state.savings}    {/**split up into sections */}
                 </h3>
                 <h4>
                     Transport: £{state.transports}
@@ -66,13 +66,16 @@ function AboutPannel({state}) {
                     Food: £{state.food}
                 </h4>
                 <h4>
+                    Rent: £{state.rent} 
+                </h4>
+                <h4>
                     Tax: £{state.tax} 
                 </h4>
                 <h4>
                     Savings: £{state.savings}
                 </h4>
                 <h4>
-                    Extras: £{state.extras}
+                    Extras: £{state.extras} {/**split up into sections */}
                 </h4>
                 <h4>
                     Investment: £{state.investment}
