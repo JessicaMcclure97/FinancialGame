@@ -1,4 +1,4 @@
-Notes: Etienne sorting subcategories of questions
+oNotes: Etienne sorting subcategories of questions
 
 Question 001:
 Q: You have decided to move out and become start your journey of being financially independant! What do you want to sort out first?
@@ -13,13 +13,13 @@ A3: £51k ~ you are in the higher rate tax bracket (45%) [Go to 003]
 Actions: global monthly_salary updated : [3000, 3500 or 4250], tax updated: [-267, -383, -420]
 
 Question 003:
-Q: You have accepted a job offer! Now you should decide what part of your budget to organise first:
+Q: You have accepted a job offer! Now you should decide what part of your budget to organise first: # DISPLAY 
 A1: Needs (i.e. rent, bills, food, transport) [Go to 004]
 A2: Future (i.e. savings, investments, pension) [Go to 005]
-A3: Extras (i.e. going out, holidaus, hobbies) [Go to 006]
+A3: Extras (i.e. going out, holidays, hobbies) [Go to 006]
 
 Question 004:
-Q: You have decided to sort out your needs first! Which would you like to sort out?[Go to 00]
+Q: You have decided to sort out your needs! Which would you like to sort out?[Go to 00]
 A1: Rent & bills [Go to 005]
 A2: Transport [Go to 006]
 Actions: once both options have been sorted go back to 003
@@ -40,7 +40,7 @@ A4: Lease Car (monthly cost £380, maintenance £12 and insurance £34) [best we
 Actions: update global monthly_transport : [0, -40, -46, -426], update balance : [-200, 0, -8000, 0], go back to 004
 
 Question 007:
-Q: You have decided to sort out your needs first! Which would you like to sort out?
+Q: You have decided to sort out your future expenses! Which would you like to sort out?
 A1: Savings [Go to 008]
 A2: Investments [Go to 009]
 A3: Pension [Go to 010]
@@ -65,9 +65,26 @@ A1: Compounded annually (interest is calculated and added to your account once e
 A2: Compunded m times per year (interested is calculated and added to your account m times per year)
 Actions: update investment_formula: [A, B], go back to 007
 
-Question 010:
+Question 010: # STILL WORKING THIS OUT
 Q: Choose your pension plan:
-A1: Defined contribution pension
+A1: Defined contribution pension 
 A2: Defined benefit pension
 A3: State pension
-Actions: update global savings: [0, -50, -100], go back to 007
+Actions: update global pension: [0, 0, 0], go back to 007
+
+Question 011:
+Q: You have decided to sort out your extra expenses! Which would you like to sort out?
+A1: Holiday
+A2: Hobbies 
+A3: Going out (i.e. restaurants, cinema)
+
+Question 012:
+Q: How often and how much do you choose to spend on a holiday?
+A1: 0 times a year
+A2: 1 small holiday (£300)
+A3: 1 medium holiday (£800)
+A4: 1 big holiday (£1200)
+Actions: update global extras : [0, -300, -800, -1200], go back to 011
+
+
+
