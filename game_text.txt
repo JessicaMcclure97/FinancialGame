@@ -77,6 +77,7 @@ Q: You have decided to sort out your extra expenses! Which would you like to sor
 A1: Holiday
 A2: Hobbies 
 A3: Going out (i.e. restaurants, cinema)
+Actions: once all options have been sorted go back to 003
 
 Question 012:
 Q: How often and how much do you choose to spend on a holiday?
@@ -86,5 +87,19 @@ A3: 1 medium holiday (£800)
 A4: 1 big holiday (£1200)
 Actions: update global extras : [0, -300, -800, -1200], go back to 011
 
+Question 013:
+Q: How expensive are your hobbies per month? For example: doing yoga at home is free, swimming once a week at your local pool could cost £4 per entry (4*£4 = £16), music lessons could cost £30 a month, skiing could cost £80.
+A1: £0 [bit more negative wellbeing]
+A2: £16 [medium wellbeing]
+A3: £30 [medium wellbeing]
+A4: £80 [medium wellbeing]
+Actions: update global extras : [0, -16, -30, -80], go back to 011
 
-
+Question 014:
+Q: How much on average do you want to spend per month going out? For example to the cinema, eating at restaurants or getting takeout, getting your hair cut.
+A1: £0 [bad wellbeing]
+A2: £15 [okay wellbeing] # LINKED TO HOBBIES?
+A3: £30 [medium wellbeing]
+A4: £50 [good wellbeing]
+A5: £100 [great wellbeing]
+Actions: update global extras: [0, -15, -30, -50, -100]
