@@ -1,3 +1,5 @@
+// source: https://blog.logrocket.com/using-plotly-react-build-dynamic-charts-graphs/
+
 // General plot
 <Plot
       data={[
