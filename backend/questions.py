@@ -19,9 +19,6 @@ initial_variables = {
     "amount_invested" : 0
 }
 
-selected_option = {}
-
-
 questions = { 
     
     "nodes": 
@@ -104,20 +101,10 @@ questions = {
 
 }
 
-
 json_object = json.dumps(questions, indent=5)
 
 with open("sample.json", "w") as outfile:
     outfile.write(json_object)
-
-
-
-def get_option(op_id):
-    for option in questions["edges"]:
-        if option["option_id"] == op_id:
-            selected_option = option
-            break
-    return selected_option
 
 def outcome(selected_option, global_vars):
 
@@ -184,6 +171,7 @@ def next_question(selected_option, global_variables):
 
     return {"question" : q_return, "options" : o_return, "state" : global_variables}
 
+#testing part
 selected_option = get_option(37)
 
 print(initial_variables)
