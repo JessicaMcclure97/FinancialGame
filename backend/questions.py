@@ -8,7 +8,7 @@ initial_variables = {
     "returns": 0,
     "transports": 0,
     "rent": 0,
-    "food": 150,
+    "food": 200,
     "tax": 0,
     "savings": 0,
     "extras": 0,
@@ -89,14 +89,14 @@ questions = {
         {"source": 12, "option_id": 33, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,3]},
 
         {"source": 13, "option_id": 34, "option_label": "£0", "target": 11, "variables": ["extras","wellbeing"], "amount": [0,-3]},
-        {"source": 13, "option_id": 35, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [20,-1]},
-        {"source": 13, "option_id": 36, "option_label": "£60", "target": 11, "variables": ["extras", "wellbeing"], "amount": [50,1]   },
-        {"source": 13, "option_id": 37, "option_label": "£120", "target": 11, "variables": ["extras", "wellbeing"], "amount": [80,3]},
+        {"source": 13, "option_id": 35, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-1]},
+        {"source": 13, "option_id": 36, "option_label": "£60", "target": 11, "variables": ["extras", "wellbeing"], "amount": [60,1]   },
+        {"source": 13, "option_id": 37, "option_label": "£120", "target": 11, "variables": ["extras", "wellbeing"], "amount": [120,3]},
 
-        {"source": 14, "option_id": 38, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [15,-3]},
-        {"source": 14, "option_id": 39, "option_label": "£75", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-1]},
-        {"source": 14, "option_id": 40, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [50,1]},
-        {"source": 14, "option_id": 41, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [100,3]}
+        {"source": 14, "option_id": 38, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-3]},
+        {"source": 14, "option_id": 39, "option_label": "£75", "target": 11, "variables": ["extras", "wellbeing"], "amount": [75,-1]},
+        {"source": 14, "option_id": 40, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,1]},
+        {"source": 14, "option_id": 41, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]}
     ]   
 
 }
@@ -120,7 +120,7 @@ def outcome(selected_option, global_vars):
 
     var_name = selected_option["variables"]
     amount = selected_option["amount"]
-
+    wellbeing_change = 0
     
     global_vars_updated = global_vars
 
@@ -149,10 +149,13 @@ def outcome(selected_option, global_vars):
             global_vars_updated["amount_saved"] += global_vars_updated["savings"]
         elif var_name[i] == "amount_invested":
             global_vars_updated["amount_invested"] += global_vars_updated["investment"]
-    
+        elif var_name[i] == "wellbeing":
+            wellbeing_change += amount[i]
+
+    global_vars_updated["wellbeing"] = min(100, global_vars_updated["wellbeing"] + wellbeing_change)
      #returns = xxx
     
-    income = global_vars_updated["salary"]  + returns
+    income = global_vars_updated["salary"]  #+ returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["investment"] + global_vars_updated["purchase"] 
 
     
@@ -178,7 +181,7 @@ def next_question(selected_option, global_variables):
 
     return {"question" : q_return, "options" : o_return, "state" : global_variables}
 
-selected_option = get_option(5)
+selected_option = get_option(37)
 
 print(initial_variables)
 
