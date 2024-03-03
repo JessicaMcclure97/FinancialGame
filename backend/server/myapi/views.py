@@ -216,7 +216,10 @@ def outcome(selected_option, global_vars):
 
     for i in range(len(var_name)):
         if var_name[i] == "salary":
-            global_vars_updated["salary"] = amount[i]
+            if selected_option["option_id"] >= 48:
+                global_vars_updated["salary"] += amount[i]
+            else:
+                global_vars_updated["salary"] = amount[i]
         elif var_name[i] == "transports":
             global_vars_updated["transports"] = amount[i]
         elif var_name[i] == "rent":
@@ -224,10 +227,7 @@ def outcome(selected_option, global_vars):
         elif var_name[i] == "tax":
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
-            if selected_option["option_id"] >= 48:
-                global_vars_updated["savings"] += amount[i]
-            else:
-                global_vars_updated["savings"] = amount[i]
+            global_vars_updated["savings"] = amount[i]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
         elif var_name[i] == "extras":
