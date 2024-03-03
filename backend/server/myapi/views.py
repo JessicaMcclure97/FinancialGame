@@ -224,7 +224,10 @@ def outcome(selected_option, global_vars):
         elif var_name[i] == "tax":
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
-            global_vars_updated["savings"] = amount[i]
+            if selected_option["option_id"] >= 48:
+                global_vars_updated["savings"] += amount[i]
+            else:
+                global_vars_updated["savings"] = amount[i]
             #global_vars_updated["amount_saved"] += global_vars_updated["savings"]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
