@@ -133,7 +133,7 @@ questions = {
 
     {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
-    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
+    {"source": 101, "option_id": -1, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
 
 ]
 }
@@ -224,7 +224,7 @@ def outcome(selected_option, global_vars):
         elif var_name[i] == "tax":
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
-            if selected_option["option_id"] >= 48 and selected_option["option_id"] < 100:
+            if selected_option["option_id"] >= 48:
                 global_vars_updated["savings"] += amount[i]
             else:
                 global_vars_updated["savings"] = amount[i]
@@ -247,7 +247,7 @@ def outcome(selected_option, global_vars):
     income = global_vars_updated["salary"]  + returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
-    if selected_option["option_id"] >= 48 and selected_option["option_id"] < 100:
+    if selected_option["option_id"] >= 48:
         global_vars_updated["bank_account"] += income - expenses
     else:
         global_vars_updated["bank_account"] = income - expenses
