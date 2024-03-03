@@ -122,7 +122,7 @@ questions = {
     {"source": 20, "option_id": 53, "option_label": "You want to go", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
     {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
 
-    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [1]},
+    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["wellbeing"], "amount": [1]},
 
     {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
     {"source": 22, "option_id": 57, "option_label": "You can't afford it, you'll stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
