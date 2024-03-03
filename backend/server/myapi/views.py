@@ -224,11 +224,10 @@ def outcome(selected_option, global_vars):
         elif var_name[i] == "tax":
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
-            if selected_option["option_id"] >= 48:
+            if selected_option["option_id"] >= 48 and selected_option["option_id"] < 100:
                 global_vars_updated["savings"] += amount[i]
             else:
                 global_vars_updated["savings"] = amount[i]
-            #global_vars_updated["amount_saved"] += global_vars_updated["savings"]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
         elif var_name[i] == "extras":
@@ -248,7 +247,7 @@ def outcome(selected_option, global_vars):
     income = global_vars_updated["salary"]  + returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
-    if selected_option["option_id"] >= 48:
+    if selected_option["option_id"] >= 48 and selected_option["option_id"] < 100:
         global_vars_updated["bank_account"] += income - expenses
     else:
         global_vars_updated["bank_account"] = income - expenses
