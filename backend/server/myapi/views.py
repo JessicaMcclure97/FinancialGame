@@ -8,6 +8,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
 
+rnd = random.randint(15,25)
+
 questions = { 
     
     "nodes": 
@@ -129,13 +131,14 @@ questions = {
     
     {"source": 24, "option_id": 59, "option_label": "First time you get a good news from the tax man", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
 
-    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]}
+    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
-    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
+    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": rnd}
 
 
 ]
 }
+
 
 json_object = json.dumps(questions, indent=5)
 
