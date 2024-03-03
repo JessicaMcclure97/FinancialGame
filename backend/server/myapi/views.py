@@ -8,13 +8,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
 
-random.seed(123)
+random.seed()
 
 questions = { 
     
     "nodes": 
     [ 
-        { "id": 1, "category" : 1, "sub-category" : 1, "question": "You have decided to move out and become start your journey of being financially independant! What do you want to sort out first?" }, 
+        { "id": 0, "category" : 0, "sub-category" : 0, "question": "It looks like you have not secured any income yet! Lets go back and sort that out..."},
+        { "id": 1, "category" : 1, "sub-category" : 1, "question": "You have decided to move out and start your journey of being financially independant! What do you want to sort out first?" }, 
         { "id": 2, "category" : 2, "sub-category" : 1, "question": "You have decided to job hunt! You have 3 job offers, with the given tax bracket information which one do you choose? # DO WE HAVE A HELP BUTTON EXPLAINING TAX BRACKETS?" },
         { "id": 3, "category" : 3, "sub-category" : 1, "question": "You have accepted a job offer! Now you should decide what part of your budget to organise first:"},
         { "id": 4, "category" : 4, "sub-category" : 1, "question": "You have decided to sort out your needs! Which would you like to sort out?"},
@@ -46,7 +47,9 @@ questions = {
     
 "edges": 
 [
-    {"source": 1, "option_id": 1, "option_label": "Rent a property [Advice about sorting out income before making decisions that result in expenses]", "target": 1},
+    {"source": 0, "option_id": 0, "option_label": "Head back", "target": 1},
+
+    {"source": 1, "option_id": 1, "option_label": "Rent a property", "target": 0},
     {"source": 1, "option_id": 2, "option_label": "Get a job", "target": 2},
 
     {"source": 2, "option_id": 3, "option_label": "£36k ~ you are in the basic tax bracket (20%)", "target": 3, "variables": ["salary", "tax"], "amount": [3000, 267]},
@@ -82,7 +85,7 @@ questions = {
     {"source": 8, "option_id": 25, "option_label": "£300", "target": 7, "variables": ["savings"], "amount": [300]},
 
     {"source": 9, "option_id": 26, "option_label": "Compounded annually at 5% per year (interest is calculated and added to your account once each year)", "target": 7, "variables": ["investment"], "amount": [1.00407]}, #(1 + 0.05)^(1/12)
-    {"source": 9, "option_id": 27, "option_label": "Compunded each quarter at 5% per year (interested is calculated and added to your account 3 times per year)", "target": 7, "variables": ["investment"], "amount": [1.00414]}, #(1 + 0.05/3)^(1/4)
+    {"source": 9, "option_id": 27, "option_label": "Compunded each quarter at 5% per year (interest is calculated and added to your account 3 times per year)", "target": 7, "variables": ["investment"], "amount": [1.00414]}, #(1 + 0.05/3)^(1/4)
 
     {"source": 10, "option_id": 28, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [300]},
     {"source": 10, "option_id": 29, "option_label": "Defined benefit pension", "target": 7, "variables": ["pension"], "amount": [150]},
@@ -90,23 +93,23 @@ questions = {
 
     {"source": 11, "option_id": 31, "option_label": "Holiday", "target": 12},
     {"source": 11, "option_id": 32, "option_label": "Hobbies", "target": 13},
-    {"source": 11, "option_id": 33, "option_label": "Going out (i.e. restaurants, cinema)", "target": 14},
+    {"source": 11, "option_id": 33, "option_label": "Going out (e.g. restaurants, cinema)", "target": 14},
     {"source": 11, "option_id": 34, "option_label": "Back", "target": 3},
 
-    {"source": 12, "option_id": 35, "option_label": "No holiday", "target": 11, "variables": ["extras", "wellbeing"], "amount": [0,-3]},
-    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [34,-1]},
-    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [67,1]},
-    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,3]},
+    {"source": 12, "option_id": 35, "option_label": "No holiday", "target": 11, "variables": ["wellbeing"], "amount": [-3]},
+    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [34,-1]},
+    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [67,1]},
+    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [150,3]},
 
-    {"source": 13, "option_id": 39, "option_label": "£0", "target": 11, "variables": ["extras","wellbeing"], "amount": [0,-3]},
-    {"source": 13, "option_id": 40, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-1]},
-    {"source": 13, "option_id": 41, "option_label": "£60", "target": 11, "variables": ["extras", "wellbeing"], "amount": [60,1]   },
-    {"source": 13, "option_id": 42, "option_label": "£120", "target": 11, "variables": ["extras", "wellbeing"], "amount": [120,3]},
+    {"source": 13, "option_id": 39, "option_label": "£0", "target": 11, "variables": ["wellbeing"], "amount": [-3]},
+    {"source": 13, "option_id": 40, "option_label": "£30", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [30,-1]},
+    {"source": 13, "option_id": 41, "option_label": "£60", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [60,1]   },
+    {"source": 13, "option_id": 42, "option_label": "£120", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [120,3]},
 
-    {"source": 14, "option_id": 43, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-3]},
-    {"source": 14, "option_id": 44, "option_label": "£75", "target": 11, "variables": ["extras", "wellbeing"], "amount": [75,-1]},
-    {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,1]},
-    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]},
+    {"source": 14, "option_id": 43, "option_label": "£30", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [30,-3]},
+    {"source": 14, "option_id": 44, "option_label": "£75", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [75,-1]},
+    {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [150,1]},
+    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [250,3]},
 
     {"source": 15, "option_id": 48, "option_label": "You take the money", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
     {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
@@ -131,7 +134,7 @@ questions = {
 
     {"source": 24, "option_id": 59, "option_label": "First time you get good news from the tax man", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
 
-    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
+    {"source": 25, "option_id": 60, "option_label": "Make sure you are paying the right amount!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
     {"source": 101, "option_id": -1, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
 
@@ -153,6 +156,7 @@ def hello_world(request):
 @api_view(['GET'])
 def get_question(request):
     print("HERE")
+    print("State:", request.GET.get('state')) # new addition
     print(request.GET.get('state'))
     # Get parameters 
     #json_data = json.loads(request.text)
@@ -238,6 +242,18 @@ def outcome(selected_option, global_vars):
             wellbeing_change += amount[i]
         elif var_name[i] == "investment":
             formula = amount[i]
+        elif var_name[i] == "hobbies":
+            if "hobbies" not in global_vars_updated:
+                global_vars_updated["hobbies"] = 0
+            global_vars_updated["hobbies"] += amount[i]
+        elif var_name[i] == "holidays":
+            if "holidays" not in global_vars_updated:
+                global_vars_updated["holidays"] = 0
+            global_vars_updated["holidays"] += amount[i]
+        elif var_name[i] == "going_out":
+            if "going_out" not in global_vars_updated:
+                global_vars_updated["going_out"] = 0
+            global_vars_updated["going_out"] += amount[i]
 
     #global_vars_updated["amount_saved"] += global_vars_updated["savings"]
     returns = global_vars_updated["amount_saved"]*formula
@@ -245,7 +261,7 @@ def outcome(selected_option, global_vars):
 
     
     income = global_vars_updated["salary"]  + returns
-    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
+    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["hobbies"] + global_vars_updated["holidays"] + global_vars_updated["going_out"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
     if selected_option["option_id"] >= 48:
         global_vars_updated["bank_account"] += income - expenses
