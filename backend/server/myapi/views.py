@@ -108,32 +108,33 @@ questions = {
     {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,1]},
     {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]},
 
-    {"source": 15, "option_id": 48, "option_label": "You take the money", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
-    {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+    {"source": 15, "option_id": 48, "option_label": "You take the money", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
+    {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
 
-    {"source": 16, "option_id": 49, "option_label": "Your work paid off", "target": 0 , "variables": ["salary", "wellbeing"], "amount": [300, 2]}, #add if condition
-    
-    {"source": 17, "option_id": 50, "option_label": "You need to wake up", "target": 0, "variables": ["salary", "wellbeing"], "amount": [-200, -3]}, #add if condition
+    {"source": 16, "option_id": 49, "option_label": "Your work paid off", "target": random.randint(15,25) , "variables": ["salary", "wellbeing"], "amount": [300, 2]},
 
-    {"source": 18, "option_id": 51, "option_label": "Finally!", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-15, 1]},
-    
-    {"source": 19, "option_id": 52, "option_label": "Next time be more carefull", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -3]},
+    {"source": 17, "option_id": 50, "option_label": "You need to wake up", "target": random.randint(15,25), "variables": ["salary", "wellbeing"], "amount": [-200, -3]},
 
-    {"source": 20, "option_id": 53, "option_label": "You want to go", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
-    {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
-    
-    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+    {"source": 18, "option_id": 51, "option_label": "Finally!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-15, 1]},
 
-    {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
-    {"source": 22, "option_id": 57, "option_label": "You can't aford it, you'll stay at home", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
+    {"source": 19, "option_id": 52, "option_label": "Next time be more careful", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -3]},
 
-    {"source": 23, "option_id": 58, "option_label": "You should have paid for the insurance", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, -2]},
-    
-    {"source": 24, "option_id": 59, "option_label": "First time you get a good news from the tax man", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
+    {"source": 20, "option_id": 53, "option_label": "You want to go", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
+    {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
 
-    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
+    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+
+    {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
+    {"source": 22, "option_id": 57, "option_label": "You can't afford it, you'll stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
+
+    {"source": 23, "option_id": 58, "option_label": "You should have paid for the insurance", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-100, -2]},
+
+    {"source": 24, "option_id": 59, "option_label": "First time you get good news from the tax man", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
+
+    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
     {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
+
 ]
 }
 
