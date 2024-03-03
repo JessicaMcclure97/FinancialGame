@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
 
-rnd = random.randint(15,25)
+random.seed(123)
 
 questions = { 
     
