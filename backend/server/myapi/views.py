@@ -122,7 +122,7 @@ questions = {
     {"source": 20, "option_id": 53, "option_label": "You want to go", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
     {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
 
-    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [1]},
 
     {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
     {"source": 22, "option_id": 57, "option_label": "You can't afford it, you'll stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
@@ -245,8 +245,10 @@ def outcome(selected_option, global_vars):
     income = global_vars_updated["salary"]  + returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
-    
-    global_vars_updated["bank_account"] = income - expenses
+    if selected_option["option_id"] >= 48:
+        global_vars_updated["bank_account"] += income - expenses
+    else:
+        global_vars_updated["bank_account"] = income - expenses
 
     return global_vars_updated
 
