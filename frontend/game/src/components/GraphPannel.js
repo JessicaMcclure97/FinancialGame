@@ -38,7 +38,7 @@ function GraphPannel({state}) {
     const income = state.salary + state.returns
     setIncomeOverTime(prevIncome => [...prevIncome, income]); // Add new income to the array
 
-    const expenses = state.transports+state.rent+state.food+state.tax+state.savings+state.extras+state.pension+state.purchase
+    const expenses = state.transports+state.rent+state.food+state.tax+state.savings+state.holidays+state.going_out+state.hobbies+state.pension+state.purchase
     setExpensesOverTime(prevExpense => [...prevExpense, expenses]);
 
     const needs = state.rent+state.transports+state.food+state.tax
@@ -47,7 +47,7 @@ function GraphPannel({state}) {
     setNeeds(needs);
     setExtras(extras);
     setFuture(future);
-   },[state.salary, state.returns, state.transports, state.rent, state.food, state.tax, state.savings, state.extras, state.pension, state.purchase]); // Re-run effect whenever salary or returns change
+   },[state.salary, state.returns, state.transports, state.rent, state.food, state.tax, state.savings, state.holidays, state.going_out, state.hobbies, state.pension, state.purchase]); // Re-run effect whenever salary or returns change
 
    var dataIncomeVsExpenses = [
     {

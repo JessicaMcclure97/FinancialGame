@@ -84,7 +84,7 @@ function AboutPannel({state}) {
                     Investment Returns: £{state.returns}
                 </h4>
                 <h3>
-                    Money Spent on Extras: £{state.holidays+ state.going_out+ state.hobbies} {/**split up into sections */}
+                    Money Spent on Extras: £{state.holidays+state.going_out+state.hobbies} {/**split up into sections */}
                 </h3>
                 <h4>
                     Holidays: £{state.holidays} {/**split up into sections */}
