@@ -30,13 +30,13 @@ function OptionsPannel({options, chosen}) {
             title="Options" 
         >
             {options.map(element => (
-                <StyledButton onClick={() => chosen(element)}>
+                <StyledButton onClick={() => chosen(element)}> 
                     {element.option_label}
                 </StyledButton>
             ))}
             
         </StyledModal>
-            
+
         </>
     );
         

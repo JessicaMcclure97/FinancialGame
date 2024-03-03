@@ -23,8 +23,11 @@ function AboutPannel({state}) {
         investment: 0,
         purchase: 0,
         amount_saved: 0,
-        amount_invested: 0
-    })
+        amount_invested: 0,
+        holidays: 0,
+        going_out: 0,
+        hobbies: 0
+    });
     */
 
     const StyledModal = styled(Modal)`
@@ -57,7 +60,7 @@ function AboutPannel({state}) {
                     Financial Overview 
                 </h2>
                 <h3>
-                    Total Spending Money: £{state.bank_account+state.savings}    {/**split up into sections */}
+                    Income not spent yet: £{state.bank_account}
                 </h3>
                 <h4>
                     Transport: £{state.transports}
@@ -75,20 +78,24 @@ function AboutPannel({state}) {
                     Savings: £{state.savings}
                 </h4>
                 <h4>
-                    Extras: £{state.extras} {/**split up into sections */}
+                    One off Purchases: £{state.purchase}
                 </h4>
                 <h4>
-                    Investment: £{state.investment}
+                    Investment Returns: £{state.returns}
+                </h4>
+                <h3>
+                    Money Spent on Extras: £{state.holidays+ state.going_out+ state.hobbies} {/**split up into sections */}
+                </h3>
+                <h4>
+                    Holidays: £{state.holidays} {/**split up into sections */}
                 </h4>
                 <h4>
-                    One of Purchase: £{state.purchase}
+                    Going out: £{state.going_out} {/**split up into sections */}
                 </h4>
                 <h4>
-                    AmountSave: £{state.amount_saved}
+                    Hobbies: £{state.hobbies} {/**split up into sections */}
                 </h4>
-                <h4>
-                    Amount Invest: £{state.investment}
-                </h4>
+
             </Frame>
             
         </StyledModal>

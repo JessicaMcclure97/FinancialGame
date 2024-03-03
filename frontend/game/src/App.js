@@ -56,7 +56,10 @@ function App() {
     investment: 0,
     purchase: 0,
     amount_saved: 0,
-    amount_invested: 0
+    amount_invested: 0,
+    holidays: 0,
+    going_out: 0,
+    hobbies: 0
   })
 
   /*
