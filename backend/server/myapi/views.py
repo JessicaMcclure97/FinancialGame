@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import json
-from random import random
+import random
 
 # Create your views here.
 from django.shortcuts import render
@@ -133,9 +133,7 @@ questions = {
 
     {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
-    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": rnd}
-
-
+    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
 ]
 }
 
