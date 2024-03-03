@@ -23,7 +23,7 @@ questions = {
         { "id": 6, "category" : 5, "sub-category" : 2, "question": "Which mode of transportation do you choose?"},
         { "id": 7, "category" : 4, "sub-category" : 2, "question": "You have decided to sort out your future! Which would you like to sort out?"},
         { "id": 8, "category" : 5, "sub-category" : 3, "question": "How much do you decide to transfer to your savings account per month:"},
-        { "id": 9, "category" : 5, "sub-category" : 4, "question": "Choose your investment plan:"},
+        { "id": 9, "category" : 5, "sub-category" : 4, "question": "Choose your investment plan below! Here are two common ways banks invest your money:Loans and Mortgages: Banks lend your deposited money to individuals and businesses in the form of loans and mortgages. These borrowers pay interest on the borrowed amount, which becomes a source of profit for the bank.Investing in Financial Markets: Banks also invest in financial instruments such as stocks, and Exchange-Traded Funds (ETFs).Stocks represent shares of ownership in a company. When you own a stock, you own a piece of that company."},
         { "id": 10, "category" : 5, "sub-category" : 5, "question": "Choose your pension plan: Defined Benefit pension scheme, often referred to as a 'final salary' scheme, provides a specific level of income at retirement determined by salary and length of service, offering certainty about future income. Defined Contribution schemes rely on contributions and investment returns, with retirement income depending on investment performance, posing individual risk rather than employer guarantee. And for completeness: The state pension provides a regular income to eligible individuals in retirement, based on their National Insurance contributions during their working years."},
         { "id": 11, "category" : 4, "sub-category" : 3, "question": "You have decided to sort out your extra expenses! Which would you like to sort out?"},
         { "id": 12, "category" : 5, "sub-category" : 6, "question": "How often and how much do you choose to spend on a holiday?"},
@@ -62,7 +62,6 @@ questions = {
     {"source": 3, "option_id": 7, "option_label": "Future (i.e. savings, investments, pension)", "target": 7},
     {"source": 3, "option_id": 8, "option_label": "Extras (i.e. going out, holidays, hobbies)", "target": 11},
     {"source": 3, "option_id": 100, "option_label": "Moving on", "target": 101},
-
 
     {"source": 4, "option_id": 9, "option_label": "Rent & bills", "target": 5},
     {"source": 4, "option_id": 10, "option_label": "Transport", "target": 6},
