@@ -56,11 +56,17 @@ function AboutPannel({state}) {
                 <h3>
                     Wellbeing: <ProgressBar width={"15vw"} percent={state.wellbeing} />
                 </h3>
-                <h2>
+                <h1>
                     Financial Overview 
+                </h1>
+                <h4>
+                    One off Purchases: £{state.purchase}
+                </h4>
+                <h2>
+                    Available Income: £{state.bank_account}
                 </h2>
                 <h3>
-                    Income not spent yet: £{state.bank_account}
+                    Money Spent on Needs: £{state.transports+state.food+state.rent+state.tax}
                 </h3>
                 <h4>
                     Transport: £{state.transports}
@@ -74,11 +80,14 @@ function AboutPannel({state}) {
                 <h4>
                     Tax: £{state.tax} 
                 </h4>
+                <h3>
+                    Money Spent on Future: £{state.savings+state.pension+state.returns}
+                </h3>
                 <h4>
                     Savings: £{state.savings}
                 </h4>
                 <h4>
-                    One off Purchases: £{state.purchase}
+                    Pension: £{state.pension}
                 </h4>
                 <h4>
                     Investment Returns: £{state.returns}

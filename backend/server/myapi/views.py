@@ -99,9 +99,9 @@ questions = {
     {"source": 11, "option_id": 34, "option_label": "Back", "target": 3},
 
     {"source": 12, "option_id": 35, "option_label": "No holiday", "target": 11, "variables": ["wellbeing"], "amount": [-3]},
-    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["holiday", "wellbeing"], "amount": [34,-1]},
-    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["holiday", "wellbeing"], "amount": [67,1]},
-    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["holiday", "wellbeing"], "amount": [150,3]},
+    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [34,-1]},
+    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [67,1]},
+    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [150,3]},
 
     {"source": 13, "option_id": 39, "option_label": "£0", "target": 11, "variables": ["wellbeing"], "amount": [-3]},
     {"source": 13, "option_id": 40, "option_label": "£30", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [30,-1]},
@@ -113,30 +113,30 @@ questions = {
     {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [150,1]},
     {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [250,3]},
 
-    {"source": 15, "option_id": 48, "option_label": "You take the money", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
-    {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+    {"source": 15, "option_id": 48, "option_label": "You take the money", "target": random.choice(list({16,17,18,19,20,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
+    {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": random.choice(list({16,17,18,19,20,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
 
-    {"source": 16, "option_id": 49, "option_label": "Your work paid off", "target": random.randint(15,25) , "variables": ["salary", "wellbeing"], "amount": [300, 2]},
+    {"source": 16, "option_id": 49, "option_label": "Your work paid off", "target": random.choice(list({15,17,18,19,20,21,22,23,24,25})) , "variables": ["salary", "wellbeing"], "amount": [300, 2]},
 
-    {"source": 17, "option_id": 50, "option_label": "You need to wake up", "target": random.randint(15,25), "variables": ["salary", "wellbeing"], "amount": [-200, -3]},
+    {"source": 17, "option_id": 50, "option_label": "You need to wake up", "target": random.choice(list({15,16,18,19,20,21,22,23,24,25})), "variables": ["salary", "wellbeing"], "amount": [-200, -3]},
 
-    {"source": 18, "option_id": 51, "option_label": "Finally!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-15, 1]},
+    {"source": 18, "option_id": 51, "option_label": "Finally!", "target": random.choice(list({15,17,16,19,20,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [-15, 1]},
 
-    {"source": 19, "option_id": 52, "option_label": "Next time be more careful", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -3]},
+    {"source": 19, "option_id": 52, "option_label": "Next time be more careful", "target": random.choice(list({15,17,18,16,20,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [250, -3]},
 
-    {"source": 20, "option_id": 53, "option_label": "You want to go", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
-    {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
+    {"source": 20, "option_id": 53, "option_label": "You want to go", "target": random.choice(list({15,17,18,19,16,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
+    {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": random.choice(list({15,17,18,19,16,21,22,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
 
-    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.randint(15,25), "variables": ["wellbeing"], "amount": [1]},
+    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": random.choice(list({15,17,18,19,20,16,22,23,24,25})), "variables": ["wellbeing"], "amount": [1]},
 
-    {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
-    {"source": 22, "option_id": 57, "option_label": "You can't afford it, you'll stay at home", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
+    {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": random.choice(list({15,17,18,19,20,21,16,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
+    {"source": 22, "option_id": 57, "option_label": "You can't afford it, you'll stay at home", "target": random.choice(list({15,17,18,19,20,21,16,23,24,25})), "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
 
-    {"source": 23, "option_id": 58, "option_label": "You should have paid for the insurance", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-100, -2]},
+    {"source": 23, "option_id": 58, "option_label": "You should have paid for the insurance", "target": random.choice(list({15,17,18,19,20,21,22,16,24,25})), "variables": ["purchase", "wellbeing"], "amount": [-100, -2]},
 
-    {"source": 24, "option_id": 59, "option_label": "First time you get good news from the tax man", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
+    {"source": 24, "option_id": 59, "option_label": "First time you get good news from the tax man", "target": random.choice(list({15,17,18,19,20,21,22,23,16,25})), "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
 
-    {"source": 25, "option_id": 60, "option_label": "Make sure you are paying the right amount!", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
+    {"source": 25, "option_id": 60, "option_label": "Make sure you are paying the right amount!", "target": random.choice(list({15,17,18,19,20,21,22,23,24,16})), "variables": ["purchase", "wellbeing"], "amount": [250, -1]},
 
     {"source": 101, "option_id": -1, "option_label": "Simulate Next Month", "target": random.randint(15,25)},
     
@@ -169,12 +169,49 @@ def get_question(request):
     chosenOption = json.loads(request.GET.get('chosenOption'))
     state = json.loads(request.GET.get('state'))
 
+
+
     print(f"cureent q = {currentQuestion} ")
     print(f"option =  {chosenOption} ")
     print(f"State = {state}")
 
+    # Final state
+    if state["movingOnCount"] == 14:
+        for Q in questions["nodes"]:
+            if Q["id"] == 999:
+                q_return = Q
+                q_return["question"] = "It has been a year, let's have a look at your finances:\n\nmonthly salary: {}\n\ntotal amount saved up: {}\n\ntotal monthly returns: {}\n\nMoney in your pension fund: {}\n".format(state["salary"], state["amount_saved"], state["returns"], state["pension"])
+                break
+
+        o_return = []
+        for option in questions["edges"]:
+            if option["source"] == Q["id"]:
+                o_return.append(option)
+
+        state["movingOnCount"] = 0
+        state["wellbeing"] = 100
+        state["bank_account"]= 0
+        state["salary"]= 0
+        state["returns"]=0
+        state["transports"]= 0
+        state["rent"]= 0
+        state["food"]= 150
+        state["tax"]=0
+        state["savings"]= 0
+        state["extras"]= 0
+        state["pension"]= 0
+        state["investment"]=0
+        state["purchase"]= 0
+        state["amount_saved"]= 0
+        state["amount_invested"]= 0
+        state["holidays"]= 0
+        state["going_out"]=0
+        state["hobbies"]=0
+
+        response = {"question" : q_return, "options" : o_return, "state" : state}
+
     # First Question therefore just need to get the first question!
-    if currentQuestion == 0 :
+    elif currentQuestion == 0 :
         for Q in questions["nodes"]:
             if Q["id"] == 1:
                 q_return = Q
@@ -263,6 +300,7 @@ def outcome(selected_option, global_vars):
     
     if selected_option["option_id"] >= 48:
         global_vars_updated["amount_saved"] += global_vars_updated["savings"] + global_vars_updated["returns"]
+        global_vars_updated["movingOnCount"] += 1
 
 
     global_vars_updated["wellbeing"] = min(100, global_vars_updated["wellbeing"] + wellbeing_change)
@@ -281,7 +319,7 @@ def outcome(selected_option, global_vars):
             if Q["id"] == 999:
                 q_return = Q
                 break
-        q_return["question"] = "It has been a year, let's have a look at your finances:\n\nmonthly salary: {} \n\ntotal amount saved up: {} \n\ntotal monthly returns: {} \n\nMoney in your pension fund: {} \n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])
+        q_return["question"] = "It has been a year, let's have a look at your finances:\n\nmonthly salary: £{}\n\ntotal amount saved up: £{}\n\ntotal monthly returns: £{}\n\nMoney in your pension fund: {}\n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])
 
 
     return global_vars_updated

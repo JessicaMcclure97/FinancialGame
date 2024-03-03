@@ -41,7 +41,7 @@ function App() {
   const [options, setOptions] = useState([]);
   const [chosenOption, setChosenOption] = useState(null)
   const [state, setState] = useState({
-    age: 10,
+    movingOnCount: 0,
     wellbeing: 100,
     bank_account: 0,
     salary: 0,
@@ -82,6 +82,7 @@ function App() {
         setQuestion({id: data.question.id, text: data.question.question}); // Update state with the fetched question
         setOptions(data.options);
         setState((data.state));
+        
       } catch (error) {
         console.error('Error fetching question:', error);
         // Handle errors appropriately, e.g., display an error message to the user
