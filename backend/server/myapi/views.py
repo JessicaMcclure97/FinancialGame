@@ -43,7 +43,11 @@ questions = {
 
         { "id": 101, "category" : 7, "sub-category" : 1, "question": "Moving on, random events will occur each month to challenge your finances ;)"},
         
+<<<<<<< HEAD
         #{ "id": 999, "category" : 8, "sub-category" : 1, "question": "It has been a year, let's have a look at your finances:\n\nmonthly salary: {} \n\ntotal amount saved up: {} \n\ntotal monthly returns: {} \n\nMoney in your pension fund: {} \n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])},
+=======
+        { "id": 999, "category" : 8, "sub-category" : 1, "question": "It has been a year, let's have a look at your finances"},
+>>>>>>> ad4f0777c6b3ad1aba7f40c8aab4184211d1eb03
 
     ],
     
@@ -251,6 +255,12 @@ def outcome(selected_option, global_vars):
             formula = amount[i]
         elif var_name[i] == "extras":
             global_vars_updated["extras"] += amount[i]
+        elif var_name[i] == "holidays":
+            global_vars_updated["holidays"] = amount[i]
+        elif var_name[i] == "hobbies":
+            global_vars_updated["hobbies"] = amount[i]
+        elif var_name[i] == "going_out":
+            global_vars_updated["going_out"] = amount[i]
 
     global_vars_updated["returns"] = global_vars_updated["amount_saved"]*global_vars_updated["formula"]
     
@@ -262,12 +272,20 @@ def outcome(selected_option, global_vars):
 
     
     income = global_vars_updated["salary"]  
-    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
+    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["holidays"] + global_vars_updated["hobbies"] + global_vars_updated["going_out"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
     if selected_option["option_id"] >= 48:
         global_vars_updated["bank_account"] += income - expenses
     else:
         global_vars_updated["bank_account"] = income - expenses
+
+    if selected_option["source"] == 999:
+        for Q in questions["nodes"]:
+            if Q["id"] == 999:
+                q_return = Q
+                break
+        q_return["question"] = "It has been a year, let's have a look at your finances:\n\nmonthly salary: {} \n\ntotal amount saved up: {} \n\ntotal monthly returns: {} \n\nMoney in your pension fund: {} \n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])
+
 
     return global_vars_updated
 

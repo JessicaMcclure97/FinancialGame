@@ -1,4 +1,5 @@
-oNotes: Etienne sorting subcategories of questions
+Notes: Etienne sorting subcategories of questions
+- Added 'back' buttons
 
 Question 001:
 Q: You have decided to move out and become start your journey of being financially independant! What do you want to sort out first?
@@ -107,3 +108,4 @@ A3: £30 [medium wellbeing]
 A4: £50 [good wellbeing]
 A5: £100 [great wellbeing]
 Actions: update global extras: [0, -15, -30, -50, -100], go back to 011
+
