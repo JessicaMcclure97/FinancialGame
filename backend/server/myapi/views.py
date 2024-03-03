@@ -93,20 +93,20 @@ questions = {
     {"source": 11, "option_id": 33, "option_label": "Going out (i.e. restaurants, cinema)", "target": 14},
     {"source": 11, "option_id": 34, "option_label": "Back", "target": 3},
 
-    {"source": 12, "option_id": 35, "option_label": "No holiday", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [0,-3]},
-    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [34,-1]},
-    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [67,1]},
-    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["holidays", "wellbeing"], "amount": [150,3]},
+    {"source": 12, "option_id": 35, "option_label": "No holiday", "target": 11, "variables": ["extras", "wellbeing"], "amount": [0,-3]},
+    {"source": 12, "option_id": 36, "option_label": "Small holiday (£400/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [34,-1]},
+    {"source": 12, "option_id": 37, "option_label": "Medium holiday (£800/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [67,1]},
+    {"source": 12, "option_id": 38, "option_label": "Big holiday (£1800/year)", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,3]},
 
-    {"source": 13, "option_id": 39, "option_label": "£0", "target": 11, "variables": ["hobbies","wellbeing"], "amount": [0,-3]},
-    {"source": 13, "option_id": 40, "option_label": "£30", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [30,-1]},
-    {"source": 13, "option_id": 41, "option_label": "£60", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [60,1]   },
-    {"source": 13, "option_id": 42, "option_label": "£120", "target": 11, "variables": ["hobbies", "wellbeing"], "amount": [120,3]},
+    {"source": 13, "option_id": 39, "option_label": "£0", "target": 11, "variables": ["extras","wellbeing"], "amount": [0,-3]},
+    {"source": 13, "option_id": 40, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-1]},
+    {"source": 13, "option_id": 41, "option_label": "£60", "target": 11, "variables": ["extras", "wellbeing"], "amount": [60,1]   },
+    {"source": 13, "option_id": 42, "option_label": "£120", "target": 11, "variables": ["extras", "wellbeing"], "amount": [120,3]},
 
-    {"source": 14, "option_id": 43, "option_label": "£30", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [30,-3]},
-    {"source": 14, "option_id": 44, "option_label": "£75", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [75,-1]},
-    {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [150,1]},
-    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["going_out", "wellbeing"], "amount": [250,3]},
+    {"source": 14, "option_id": 43, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-3]},
+    {"source": 14, "option_id": 44, "option_label": "£75", "target": 11, "variables": ["extras", "wellbeing"], "amount": [75,-1]},
+    {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,1]},
+    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]},
 
     {"source": 15, "option_id": 48, "option_label": "You take the money", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
     {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": random.randint(15,25), "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
@@ -230,12 +230,8 @@ def outcome(selected_option, global_vars):
                 global_vars_updated["savings"] = amount[i]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
-        elif var_name[i] == "holidays":
-            global_vars_updated["holidays"] += amount[i]
-        elif var_name[i] == "hobbies":
-            global_vars_updated["hobbies"] += amount[i]
-        elif var_name[i] == "going_out":
-            global_vars_updated["going_out"] += amount[i]
+        elif var_name[i] == "extras":
+            global_vars_updated["extras"] += amount[i]
         elif var_name[i] == "pension":
             global_vars_updated["pension"] += amount[i]
         elif var_name[i] == "wellbeing":
@@ -249,7 +245,7 @@ def outcome(selected_option, global_vars):
 
     
     income = global_vars_updated["salary"]  + returns
-    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["holidays"] + global_vars_updated["hobbies"] + global_vars_updated["going_out"] +global_vars_updated["pension"] + global_vars_updated["purchase"] 
+    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
     if selected_option["option_id"] >= 48:
         global_vars_updated["bank_account"] += income - expenses
