@@ -29,51 +29,57 @@ function GraphPannel({state}) {
    const [showBudget, setBudget] = useState(false)
    const [incomeOverTime, setIncomeOverTime] = useState([0])
 
+
    useEffect(() => {
     const income = state.salary+state.returns
-    setIncomeAndExpense([...incomeOverTime, income])
+    
+    setIncomeAndExpense(incomeOverTime.concat(income)); // Concatenate and update state
+    
+
     console.log("INCOME OVER TIME")
     console.log(incomeOverTime)
    },[state]);
 
-    var dataIncomeVsExpenses = [
-        {
-             x: [Array.from({ length: incomeOverTime.length }, (_, i) => i + 1)], // months
-             y: [incomeOverTime], // income = salary + returns
-             type: 'scatter',
-             name: 'Income',
-             line: {color: '#4daf4a'},
-             marker: { size: 9 } 
-           },
-           {
-             x: [Array.from({length: incomeOverTime.length }, (_, i) => i + 1)], // months
-             y: [incomeOverTime], // expenses = transport + rent + food + tax + savings + extras + pension + purchase
-             type: 'scatter',
-             name: 'Expenses',
-             line: {color: '#e41a1c'},
-             marker: { symbol: 'x', size: 9, line: {color: '#e41a1c'} }
-           }
-      ];
+   var dataIncomeVsExpenses = [
+    {
+         x: [Array.from({ length: incomeOverTime.length+1 }, (_, i) => i + 1)], // months
+         y: [incomeOverTime], // income = salary + returns
+         type: 'scatter',
+         name: 'Income',
+         line: {color: '#4daf4a'},
+         marker: { size: 9 } 
+       },
+       {
+         x: [Array.from({length: incomeOverTime.length }, (_, i) => i + 1)], // months
+         y: [incomeOverTime], // expenses = transport + rent + food + tax + savings + extras + pension + purchase
+         type: 'scatter',
+         name: 'Expenses',
+         line: {color: '#e41a1c'},
+         marker: { symbol: 'x', size: 9, line: {color: '#e41a1c'} }
+       }
+    ];
     var dataBankBalance = [
         {
-             x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
-             y: [612, 647, 621, 633, 625, 654, 602, 629, 645, 603, 616, 618, 658, 610, 631, 611, 650, 622, 640, 627, 614, 639, 608, 655], // income - expenses
-             type: 'scatter',
-             name: 'Balance',
-             line: {color: '#377eb8'},
-             marker: { size: 9 }
-           }
-      ];
+            x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], // months
+            y: [612, 647, 621, 633, 625, 654, 602, 629, 645, 603, 616, 618, 658, 610, 631, 611, 650, 622, 640, 627, 614, 639, 608, 655], // income - expenses
+            type: 'scatter',
+            name: 'Balance',
+            line: {color: '#377eb8'},
+            marker: { size: 9 }
+        }
+    ];
     var dataBudget = [
         {
-          values: [20,30,50],//[(state.rent+state.transport+state.food+state.tax),(state.savings+state.pension),(state.extras)], //state.rent+state.transport+state.food+state.tax, state.savings+state.pension, state.extras],
-          labels: ["Needs", "Future", "Extras"],
-          type: "pie",
-          marker: {
+        values: [20,30,50],//[(state.rent+state.transport+state.food+state.tax),(state.savings+state.pension),(state.extras)], //state.rent+state.transport+state.food+state.tax, state.savings+state.pension, state.extras],
+        labels: ["Needs", "Future", "Extras"],
+        type: "pie",
+        marker: {
             colors: ["#999999", "#984ea3", "#ff7f00"] // Specify custom colors for each section
-          }
+        }
         },
-      ];
+    ];
+
+   
 
     const StyledModal1 = styled(Modal)`
     position: fixed;
