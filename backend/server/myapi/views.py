@@ -215,18 +215,12 @@ def outcome(selected_option, global_vars):
             global_vars_updated["tax"] = amount[i]
         elif var_name[i] == "savings":
             global_vars_updated["savings"] = amount[i]
-        elif var_name[i] == "investment":
-            global_vars_updated["investment"] = amount[i]
         elif var_name[i] == "purchase":
             global_vars_updated["purchase"] = amount[i]
         elif var_name[i] == "extras":
             global_vars_updated["extras"] += amount[i]
         elif var_name[i] == "pension":
             global_vars_updated["pension"] += amount[i]
-        elif var_name[i] == "amount_saved":
-            global_vars_updated["amount_saved"] += global_vars_updated["savings"]
-        elif var_name[i] == "amount_invested":
-            global_vars_updated["amount_invested"] += global_vars_updated["investment"]
         elif var_name[i] == "wellbeing":
             wellbeing_change += amount[i]
         elif var_name[i] == "investment":
@@ -238,7 +232,7 @@ def outcome(selected_option, global_vars):
 
     
     income = global_vars_updated["salary"]  + returns
-    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["investment"] + global_vars_updated["purchase"] 
+    expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["purchase"] 
 
     
     global_vars_updated["bank_account"] = income - expenses
