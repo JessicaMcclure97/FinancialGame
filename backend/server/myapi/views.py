@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import json
+from random import random
 
 # Create your views here.
 from django.shortcuts import render
@@ -20,7 +21,7 @@ questions = {
         { "id": 7, "category" : 4, "sub-category" : 2, "question": "You have decided to sort out your future! Which would you like to sort out?"},
         { "id": 8, "category" : 5, "sub-category" : 3, "question": "How much do you decide to transfer to your savings account per month:"},
         { "id": 9, "category" : 5, "sub-category" : 4, "question": "Choose your investment plan:"},
-        { "id": 10, "category" : 5, "sub-category" : 5, "question": "Choose your pension plan:"},
+        { "id": 10, "category" : 5, "sub-category" : 5, "question": "Choose your pension plan: Defined Benefit pension scheme, often referred to as a 'final salary' scheme, provides a specific level of income at retirement determined by salary and length of service, offering certainty about future income. Defined Contribution schemes rely on contributions and investment returns, with retirement income depending on investment performance, posing individual risk rather than employer guarantee. And for completeness: The state pension provides a regular income to eligible individuals in retirement, based on their National Insurance contributions during their working years."},
         { "id": 11, "category" : 4, "sub-category" : 3, "question": "You have decided to sort out your extra expenses! Which would you like to sort out?"},
         { "id": 12, "category" : 5, "sub-category" : 6, "question": "How often and how much do you choose to spend on a holiday?"},
         { "id": 13, "category" : 6, "sub-category" : 7, "question": "How expensive are your hobbies per month?"},
@@ -37,6 +38,8 @@ questions = {
         { "id": 24, "category" : 6, "sub-category" : 8, "question": "Unexpectedly received a tax refund. Amount: £100"},
         { "id": 25, "category" : 6, "sub-category" : 8, "question": "Underpaid taxes and owe an additional £250"},
 
+        { "id": 101, "category" : 7, "sub-category" : 1, "question": "Moving on, random events will occur each month to challenge your finances ;)"},
+
     ],
     
 "edges": 
@@ -51,6 +54,8 @@ questions = {
     {"source": 3, "option_id": 6, "option_label": "Needs (i.e. rent, bills, food, transport)", "target": 4},
     {"source": 3, "option_id": 7, "option_label": "Future (i.e. savings, investments, pension)", "target": 7},
     {"source": 3, "option_id": 8, "option_label": "Extras (i.e. going out, holidays, hobbies)", "target": 11},
+    {"source": 3, "option_id": 100, "option_label": "Moving on", "target": 101},
+
 
     {"source": 4, "option_id": 9, "option_label": "Rent & bills", "target": 5},
     {"source": 4, "option_id": 10, "option_label": "Transport", "target": 6},
@@ -125,6 +130,9 @@ questions = {
     {"source": 24, "option_id": 59, "option_label": "First time you get a good news from the tax man", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
 
     {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]}
+
+    {"source": 101, "option_id": 101, "option_label": "Simulate Next Month", "target": random.randint(15,25)}
+
 
 ]
 }
