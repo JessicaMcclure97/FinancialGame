@@ -109,3 +109,9 @@ A4: £50 [good wellbeing]
 A5: £100 [great wellbeing]
 Actions: update global extras: [0, -15, -30, -50, -100], go back to 011
 
+
+When you deposit money into a bank, the bank typically uses those funds for various purposes to generate profits. One way banks do this is by investing the money in different financial instruments. Here are two common ways banks invest your money:
+
+Loans and Mortgages: Banks lend your deposited money to individuals and businesses in the form of loans and mortgages. These borrowers pay interest on the borrowed amount, which becomes a source of profit for the bank.
+Investing in Financial Markets: Banks also invest in financial instruments such as stocks, and Exchange-Traded Funds (ETFs).Stocks represent shares of ownership in a company. When you own a stock, you own a piece of that company. Stockholders may receive a portion of the company's profits through dividends, and they can also benefit if the stock's value increases over time. ETFs are like a bundle of different investments (stocks, bonds etc.). People like them because they offer a simple way to invest in a variety of assets and market sectors.
+
