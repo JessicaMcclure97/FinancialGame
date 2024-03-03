@@ -43,7 +43,7 @@ questions = {
 
         { "id": 101, "category" : 7, "sub-category" : 1, "question": "Moving on, random events will occur each month to challenge your finances ;)"},
         
-        { "id": 999, "category" : 8, "sub-category" : 1, "question": "It has been a year, let's have a look at your finances:\n\nmonthly salary: {} \n\ntotal amount saved up: {} \n\ntotal monthly returns: {} \n\nMoney in your pension fund: {} \n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])},
+        { "id": 999, "category" : 8, "sub-category" : 1, "question": "It has been a year, let's have a look at your finances"},
 
     ],
     
@@ -268,6 +268,14 @@ def outcome(selected_option, global_vars):
         global_vars_updated["bank_account"] += income - expenses
     else:
         global_vars_updated["bank_account"] = income - expenses
+
+    if selected_option["source"] == 999:
+        for Q in questions["nodes"]:
+            if Q["id"] == 999:
+                q_return = Q
+                break
+        q_return["question"] = "It has been a year, let's have a look at your finances:\n\nmonthly salary: {} \n\ntotal amount saved up: {} \n\ntotal monthly returns: {} \n\nMoney in your pension fund: {} \n".format(global_vars_updated["salary"], global_vars_updated["amount_saved"], global_vars_updated["returns"], global_vars_updated["pension"])
+
 
     return global_vars_updated
 
