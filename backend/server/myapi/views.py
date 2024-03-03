@@ -23,8 +23,20 @@ questions = {
         { "id": 10, "category" : 5, "sub-category" : 5, "question": "Choose your pension plan:"},
         { "id": 11, "category" : 4, "sub-category" : 3, "question": "You have decided to sort out your extra expenses! Which would you like to sort out?"},
         { "id": 12, "category" : 5, "sub-category" : 6, "question": "How often and how much do you choose to spend on a holiday?"},
-        { "id": 13, "category" : 5, "sub-category" : 7, "question": "How expensive are your hobbies per month?"},
+        { "id": 13, "category" : 6, "sub-category" : 7, "question": "How expensive are your hobbies per month?"},
         { "id": 14, "category" : 5, "sub-category" : 8, "question": "How much on average do you want to spend per month going out? For example to the cinema, eating at restaurants or getting takeout, getting your hair cut"},
+        { "id": 15, "category" : 6, "sub-category" : 8, "question": "You found £20 on the street!"},
+        { "id": 16, "category" : 6, "sub-category" : 8, "question": "Received a promotion at work. Monthly salary increased by £300"},
+        { "id": 17, "category" : 6, "sub-category" : 8, "question": "Poor performance at work. You lost your bonuses. Monthly income reduced by £200"},
+        { "id": 18, "category" : 6, "sub-category" : 8, "question": "Won a small lottery prize. Cash reward: £15"},
+        { "id": 19, "category" : 6, "sub-category" : 8, "question": "Unexpected medical bill. Cost: £250"},
+        { "id": 20, "category" : 6, "sub-category" : 8, "question": "Your favorite band is having a concert. Ticket cost: £50"},
+        { "id": 21, "category" : 6, "sub-category" : 8, "question": "Free tickets to a local event!"},
+        { "id": 22, "category" : 6, "sub-category" : 8, "question": "Found a great deal on a holiday package. Cost: £300"},
+        { "id": 23, "category" : 6, "sub-category" : 8, "question": "Cancelled holiday due to unforeseen circumstances. Refund: £100"},
+        { "id": 24, "category" : 6, "sub-category" : 8, "question": "Unexpectedly received a tax refund. Amount: £100"},
+        { "id": 25, "category" : 6, "sub-category" : 8, "question": "Underpaid taxes and owe an additional £250"},
+
     ],
     
 "edges": 
@@ -48,10 +60,10 @@ questions = {
     {"source": 5, "option_id": 13, "option_label": "Intermediate (£800)", "target": 4, "variables": ["rent", "wellbeing"], "amount": [800,1]},
     {"source": 5, "option_id": 14, "option_label": "Fancy (£1100)", "target": 4, "variables": ["rent", "wellbeing"], "amount": [1100,3]},
 
-    {"source": 6, "option_id": 15, "option_label": "Cycle (Initial bike cost £200) [worst wellbeing wise]", "target": 4, "variables": ["transport", "purchase", "wellbeing"], "amount": [0, 200,-3]},
-    {"source": 6, "option_id": 16, "option_label": "Public transport (monthly ticket cost of £50 and no maintenance)", "target": 4, "variables": ["transport", "purchase", "wellbeing"], "amount": [50, 0,-1]},
-    {"source": 6, "option_id": 17, "option_label": "Buy Car (large initial cost £8k, maintenance £30 and insurance £50)", "target": 4, "variables": ["transport", "purchase", "wellbeing"], "amount": [80, 8000,3]},
-    {"source": 6, "option_id": 18, "option_label": "Lease Car (monthly cost £380, maintenance £30 and insurance £50)", "target": 4, "variables": ["transport", "purchase", "wellbeing"], "amount": [450, 0,3]},
+    {"source": 6, "option_id": 15, "option_label": "Cycle (Initial bike cost £200) [worst wellbeing wise]", "target": 4, "variables": ["transports", "purchase", "wellbeing"], "amount": [0, 200,-3]},
+    {"source": 6, "option_id": 16, "option_label": "Public transport (monthly ticket cost of £50 and no maintenance)", "target": 4, "variables": ["transports", "purchase", "wellbeing"], "amount": [50, 0,-1]},
+    {"source": 6, "option_id": 17, "option_label": "Buy Car (large initial cost £8k, maintenance £30 and insurance £50)", "target": 4, "variables": ["transports", "purchase", "wellbeing"], "amount": [80, 8000,3]},
+    {"source": 6, "option_id": 18, "option_label": "Lease Car (monthly cost £380, maintenance £30 and insurance £50)", "target": 4, "variables": ["transports", "purchase", "wellbeing"], "amount": [450, 0,3]},
 
     {"source": 7, "option_id": 19, "option_label": "Savings", "target": 8},
     {"source": 7, "option_id": 20, "option_label": "Investments", "target": 9},
@@ -59,15 +71,15 @@ questions = {
     {"source": 7, "option_id": 22, "option_label": "Back", "target": 3},
 
     {"source": 8, "option_id": 23, "option_label": "£0", "target": 7, "variables": ["savings"], "amount": [0]},
-    {"source": 8, "option_id": 24, "option_label": "£150", "target": 7, "variables": ["savings"], "amount": [50]},
-    {"source": 8, "option_id": 25, "option_label": "£300", "target": 7, "variables": ["savings"], "amount": [100]},
+    {"source": 8, "option_id": 24, "option_label": "£150", "target": 7, "variables": ["savings"], "amount": [150]},
+    {"source": 8, "option_id": 25, "option_label": "£300", "target": 7, "variables": ["savings"], "amount": [300]},
 
     {"source": 9, "option_id": 26, "option_label": "Compounded annually at 5% per year (interest is calculated and added to your account once each year)", "target": 7, "variables": ["investment"], "amount": [1.00407]}, #(1 + 0.05)^(1/12)
     {"source": 9, "option_id": 27, "option_label": "Compunded each quarter at 5% per year (interested is calculated and added to your account 3 times per year)", "target": 7, "variables": ["investment"], "amount": [1.00414]}, #(1 + 0.05/3)^(1/4)
 
-    {"source": 10, "option_id": 28, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [0]},
+    {"source": 10, "option_id": 28, "option_label": "Defined contribution pension", "target": 7, "variables": ["pension"], "amount": [300]},
     {"source": 10, "option_id": 29, "option_label": "Defined benefit pension", "target": 7, "variables": ["pension"], "amount": [150]},
-    {"source": 10, "option_id": 30, "option_label": "State pension", "target": 7, "variables": ["pension"], "amount": [300]},
+    {"source": 10, "option_id": 30, "option_label": "State pension", "target": 7, "variables": ["pension"], "amount": [0]},
 
     {"source": 11, "option_id": 31, "option_label": "Holiday", "target": 12},
     {"source": 11, "option_id": 32, "option_label": "Hobbies", "target": 13},
@@ -87,10 +99,35 @@ questions = {
     {"source": 14, "option_id": 43, "option_label": "£30", "target": 11, "variables": ["extras", "wellbeing"], "amount": [30,-3]},
     {"source": 14, "option_id": 44, "option_label": "£75", "target": 11, "variables": ["extras", "wellbeing"], "amount": [75,-1]},
     {"source": 14, "option_id": 45, "option_label": "£150", "target": 11, "variables": ["extras", "wellbeing"], "amount": [150,1]},
-    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]}
+    {"source": 14, "option_id": 46, "option_label": "£250", "target": 11, "variables": ["extras", "wellbeing"], "amount": [250,3]},
+
+    {"source": 15, "option_id": 48, "option_label": "You take the money", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-20, -1]},
+    {"source": 15, "option_id": 47, "option_label": "You take the wallet to the nearest police station", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+
+    {"source": 16, "option_id": 49, "option_label": "Your work paid off", "target": 0 , "variables": ["salary", "wellbeing"], "amount": [300, 2]}, #add if condition
+    
+    {"source": 17, "option_id": 50, "option_label": "You need to wake up", "target": 0, "variables": ["salary", "wellbeing"], "amount": [-200, -3]}, #add if condition
+
+    {"source": 18, "option_id": 51, "option_label": "Finally!", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-15, 1]},
+    
+    {"source": 19, "option_id": 52, "option_label": "Next time be more carefull", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -3]},
+
+    {"source": 20, "option_id": 53, "option_label": "You want to go", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [50, 2]},
+    {"source": 20, "option_id": 54, "option_label": "They'll come again, you prefer to stay at home", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, -1]},
+    
+    {"source": 21, "option_id": 55, "option_label": "If it's free, count me in!", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, 1]},
+
+    {"source": 22, "option_id": 56, "option_label": "You really need that break in Ibiza", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [300, 3]},
+    {"source": 22, "option_id": 57, "option_label": "You can't aford it, you'll stay at home", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [0, -2]},
+
+    {"source": 23, "option_id": 58, "option_label": "You should have paid for the insurance", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, -2]},
+    
+    {"source": 24, "option_id": 59, "option_label": "First time you get a good news from the tax man", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [-100, 1]},
+
+    {"source": 25, "option_id": 60, "option_label": "You won't cheat next time", "target": 0, "variables": ["purchase", "wellbeing"], "amount": [250, -1]}
+
 ]
 }
-
 
 json_object = json.dumps(questions, indent=5)
 
@@ -164,6 +201,8 @@ def outcome(selected_option, global_vars):
     wellbeing_change = 0
     global_vars_updated = global_vars
     global_vars_updated["purchase"] = 0
+    returns = 0
+    formula = 1
 
     for i in range(len(var_name)):
         if var_name[i] == "salary":
@@ -190,11 +229,15 @@ def outcome(selected_option, global_vars):
             global_vars_updated["amount_invested"] += global_vars_updated["investment"]
         elif var_name[i] == "wellbeing":
             wellbeing_change += amount[i]
+        elif var_name[i] == "investment":
+            formula = amount[i]
 
+    global_vars_updated["amount_saved"] += global_vars_updated["savings"]
+    returns = global_vars_updated["amount_saved"]*formula
     global_vars_updated["wellbeing"] = min(100, global_vars_updated["wellbeing"] + wellbeing_change)
-     #returns = xxx
+
     
-    income = global_vars_updated["salary"]  #+ returns
+    income = global_vars_updated["salary"]  + returns
     expenses = global_vars_updated["transports"] + global_vars_updated["rent"] + global_vars_updated["food"] + global_vars_updated["tax"] + global_vars_updated["savings"] + global_vars_updated["extras"] + global_vars_updated["pension"] + global_vars_updated["investment"] + global_vars_updated["purchase"] 
 
     
